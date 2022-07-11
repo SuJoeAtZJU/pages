@@ -142,7 +142,1318 @@
 </head>
 
 <body class="template-index" data-spm="index">
-  <script src="//assets.dtceasy-cdn.com/code/npm/@alife/buyer-tools/0.0.1/app.js"></script>
+  <script>
+    (() => {
+  var t = {
+      298: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.REG_WEBP_FORMAT = e.REG_IMG_SUFFIX = e.REG_NOT_MODIFY_IMG = e.REG_EXCLUDE_IMG_TYPE = e.REG_TFS_IMG_URL = e.REG_OSS_IMG_URL = e.REG_CDN_IMG_URL = e.DOMAIN_WHITELIST = e.IS_PHA = e.IS_IOS = e.IS_ALI_APP = void 0;
+        e.IS_ALI_APP = /AliApp\(TB\//;
+        e.IS_IOS = /(iPhone|iPad|iPod)/;
+        e.IS_PHA = /PHA/;
+        e.DOMAIN_WHITELIST = [/gw\.alicdn\.com/, /img\.alicdn\.com/, /filebroker-cdn\.taobao\.global/, /fb\.dtceasy-cdn\.com/, /cdn-dtc\.okki\.com/];
+        e.REG_CDN_IMG_URL = /^(?:(?:http|https):)?\/\/(.+\.(?:alicdn|taobaocdn|taobao|dtceasy-cdn)\.(?:com|cn|global))(\/.*(?:\.(jpg|png|gif|jpeg|webp))?)$/i;
+        e.REG_OSS_IMG_URL = /^(?:(?:http|https):)?\/\/(ossgw\.(?:alicdn|taobaocdn|taobao)\.(?:com|cn))(\/.*(?:\.(jpg|png|gif|jpeg|webp))?)|(?:(?:http|https):)?\/\/(img-ovs\.alicdn\.com)(\/tmg-app\/.*(?:\.(jpg|png|gif|jpeg|webp)))$/i;
+        e.REG_TFS_IMG_URL = /^(?:(?:http|https):)?\/\/((?:img|gw)\.(?:alicdn|taobaocdn|taobao)\.(?:com|cn))(\/(?:tfs|imgextra)\/.*(?:\.(jpg|png|gif|jpeg|webp))?)$/i;
+        e.REG_EXCLUDE_IMG_TYPE = /\.gif/;
+        e.REG_NOT_MODIFY_IMG = /_(?:(sum|m|b|\d+x\d+))?((xz|xc)|g|co0|(c[xy]\d+i\d+))([qQ]\d{2})?(s\d+)?\.jpg/;
+        e.REG_IMG_SUFFIX = /_(\d+x\d+|cy\d+i\d+|sum|m|b)?(xz|xc)?((?:q\d+)?(?:s\d+)?)(\.jpg)?(_\.webp)?$/i;
+        e.REG_WEBP_FORMAT = /_\.(webp)/
+      },
+      783: function (t, e, o) {
+        "use strict";
+        var n = this && this.__importDefault || function (t) {
+          return t && t.__esModule ? t : {
+            default: t
+          }
+        };
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        const r = n(o(369)),
+          i = n(o(913)),
+          s = n(o(631)),
+          c = n(o(668)),
+          a = n(o(197)),
+          u = n(o(639)),
+          l = n(o(189)),
+          f = o(298),
+          d = (0, u.default)();
+        let h, p;
+        const m = {
+          getBestCdnSize(t, e, o, n) {
+            const r = e || screen && screen.width || 0,
+              i = o || 0;
+            if (!r && !i) return "";
+            const s = Math.max(r, i) * d;
+            let c = n.find((t => Math.min(t[0], t[1] || t[0]) >= s));
+            c || (c = n[n.length - 1]);
+            const a = t.match(f.REG_TFS_IMG_URL),
+              u = c[0],
+              l = a ? 1e4 : c[1] || c[0];
+            return h ? `_${u}w` : `${u}x${l}`
+          },
+          getFitUrl(t, e, o, n) {
+            let u = t;
+            const g = Object.assign({}, {
+              removeScheme: !0,
+              replaceDomain: !1
+            }, n);
+            if (f.REG_EXCLUDE_IMG_TYPE.test(t) && !g.isForce) return t;
+            h = f.REG_OSS_IMG_URL.test(t);
+            const b = t.match(f.REG_CDN_IMG_URL) || [],
+              y = b[1],
+              v = b[2],
+              _ = !/\.gif($|\?)/i.test(v),
+              w = !/\.png($|\?)/i.test(v);
+            p = v.match(f.REG_IMG_SUFFIX) || [];
+            const O = t.match(f.REG_TFS_IMG_URL);
+            let I = l.default[O ? 0 : 1];
+            if ("object" == typeof n.sizeList && n.sizeList.length >= 0 && (I = n.sizeList), g.size = p[1] || "", e && _ && (g.size = m.getBestCdnSize(t, e, o, I)), g.quality = p[3] || "", g.sharpen = "", _ && w && (g.quality = r.default.get({
+                quality: g.quality,
+                devicePixelRatio: d,
+                isOssImage: h
+              }), g.sharpen = i.default.get({
+                quality: g.quality,
+                isOssImage: h
+              })), g.cut = g.size && p[2] || "", g.suffix = g.size || g.quality ? p[4] || ".jpg" : "", g.prev = g.size || g.quality ? "_" : "", h && ("_" !== g.prev && (w || g.prev) || (g.prev = "@"), t.split("@")[1] && (g.prev = "")), _) {
+              "_.jpg" !== p[0] && (u = u.replace(p[0], ""));
+              let e = h ? ".webp" : "_.webp";
+              t.indexOf(e) > -1 ? u = u.replace(e, "") : s.default.isWebp() || (e = ""), u += h ? g.prev + g.size + g.cut + g.quality + g.sharpen + e : g.prev + g.size + g.cut + g.quality + g.sharpen + g.suffix + e, g.removeScheme && (u = (0, a.default)(u))
+            }
+            return g.replaceDomain && (u = (0, c.default)(u, y)), u
+          }
+        };
+        e.default = m
+      },
+      365: function (t, e, o) {
+        "use strict";
+        var n = this && this.__importDefault || function (t) {
+          return t && t.__esModule ? t : {
+            default: t
+          }
+        };
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), o(217);
+        const r = n(o(783)),
+          i = n(o(965)),
+          s = n(o(631)),
+          c = o(298),
+          a = {
+            getFitUrl(t = "", e, o, n = {}) {
+              if ("string" != typeof t) return "";
+              const i = c.DOMAIN_WHITELIST.some((e => e.test((t.match(c.REG_CDN_IMG_URL) || [])[1]))),
+                a = n.ignoreReg || !1,
+                u = t.match(c.REG_OSS_IMG_URL);
+              return !i && !u || a && a.test(t) || /\.svg$/.test(t) || (!n.format && s.default.isWebp() && (n.format = "webp"), e && e > 375 && (e /= 2), t = r.default.getFitUrl(t, e, o, n)), t
+            },
+            dataLazyPlugin: (t, e) => function (o, n) {
+              const s = o && "img" === o.type && o.src && !i.default.hasAttr(o.elem, "crossimage-ignore"),
+                c = !s && o && "bgimg" === o.type && o.bgimgSrc && !i.default.hasAttr(o.elem, "crossimage-ignore"),
+                a = s && i.default.hasAttr(o.elem, "crossimage-force");
+              try {
+                const n = o.elem;
+                t && t.length > 0 && "function" == typeof t.get && (t = t.get(0));
+                const u = t && (i.default.contains(t, n) || n === t),
+                  l = Object.assign({
+                    openSetDisplay: !0
+                  }, e, {
+                    isForce: a,
+                    imgContext: t
+                  });
+                if (s && u) {
+                  let t = 0,
+                    e = 0;
+                  const {
+                    parentNode: n
+                  } = o.elem;
+                  n && (t = n.clientWidth, e = n.clientHeight), o.src = r.default.getFitUrl(o.src, t, e, l)
+                } else c && u && (o.bgimgSrc = r.default.getFitUrl(o.bgimgSrc, o.elem.offsetWidth, o.elem.offsetHeight, l))
+              } catch (t) {
+                setTimeout((() => {
+                  throw t
+                }), 0)
+              }
+              n && n()
+            }
+          };
+        e.default = a
+      },
+      965: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        const o = "object" == typeof document && document.documentElement && document.documentElement.contains ? function (t, e) {
+            return t !== e && t.contains && t.contains(e)
+          } : function (t, e) {
+            for (; e;)
+              if ((e = e.parentNode) === t) return !0;
+            return !1
+          },
+          n = function (t) {
+            return t && (1 === t.nodeType || 11 === t.nodeType)
+          };
+        e.default = {
+          contains: o,
+          hasAttr: function (t, e) {
+            return t && n(t) && t.hasAttribute(e)
+          },
+          isNode: n
+        }
+      },
+      639: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.default = () => {
+          let t;
+          return "function" == typeof callNative && "object" == typeof WXEnvironment ? t = WXEnvironment.scale : "object" == typeof window && window.devicePixelRatio && (t = window.devicePixelRatio), t = Number(t), t > 1 && (t = 2), t || 2
+        }
+      },
+      217: () => {
+        Array.prototype.find || Object.defineProperty(Array.prototype, "find", {
+          value: function (t) {
+            if (null == this) throw new TypeError('"this" is null or not defined');
+            var e = Object(this),
+              o = e.length >>> 0;
+            if ("function" != typeof t) throw new TypeError("predicate must be a function");
+            for (var n = arguments[1], r = 0; r < o;) {
+              var i = e[r];
+              if (t.call(n, i, r, e)) return i;
+              r++
+            }
+          }
+        })
+      },
+      369: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        const o = {
+          NETWORK_QUALITY: {
+            "2g": 50,
+            "3g": 75,
+            "4g": 80,
+            wifi: 90
+          },
+          getQualityByNetwork() {
+            const t = navigator;
+            if (void 0 !== t) {
+              const e = t.connection || t.mozConnection || t.webkitConnection || {};
+              if (e.effectiveType) return o.NETWORK_QUALITY[e.effectiveType] || 90
+            }
+            return 90
+          },
+          getQualityByDevicePixelRatio(t) {
+            let e = 90;
+            return t >= 3 ? e = 50 : t >= 2 && (e = 75), e
+          },
+          getQuality(t) {
+            let {
+              quality: e
+            } = t;
+            if (!e) {
+              const n = Math.min(o.getQualityByNetwork(), o.getQualityByDevicePixelRatio(t.devicePixelRatio));
+              e = t.isOssImage ? `_${n}q` : `q${n}`
+            }
+            return e
+          }
+        };
+        e.default = {
+          get: o.getQuality
+        }
+      },
+      197: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.default = function (t) {
+          return t.replace(/(http|https):/gi, "")
+        }
+      },
+      668: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        const o = "img-ovs.alicdn.com",
+          n = /(.+\.(?:alicdn|taobaocdn|taobao|mmcdn)\.com)/,
+          r = ["a.tbcdn.cn", "assets.alicdn.com", "wwc.taobaocdn.com", "wwc.alicdn.com", "cbu01.alicdn.com", "ossgw.alicdn.com", "img.alicdn.com"];
+        e.default = function (t, e) {
+          const i = e.match(n);
+          return i && i[0] !== o && -1 === r.indexOf(e) ? t.replace(e, o) : t
+        }
+      },
+      913: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        e.default = {
+          get: t => {
+            let {
+              sharpen: e
+            } = t;
+            if ("" !== e && !e) {
+              const {
+                quality: o
+              } = t;
+              if ("string" == typeof o) {
+                const n = t.isOssImage ? o.match(/^_(\d{2})[q|Q]$/) : o.match(/^[q|Q](\d{2})$/);
+                (n && n.length >= 2 ? parseInt(n[1], 10) : 1e4) <= 50 && (e = "s150")
+              }
+            }
+            return e || ""
+          }
+        }
+      },
+      189: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.default = [
+          [
+            [110],
+            [140],
+            [150],
+            [170],
+            [220],
+            [230],
+            [240],
+            [290],
+            [300],
+            [360],
+            [450],
+            [570],
+            [580],
+            [620],
+            [790]
+          ],
+          [
+            [50],
+            [80],
+            [100],
+            [120],
+            [140],
+            [150],
+            [170],
+            [200],
+            [220],
+            [250],
+            [300],
+            [350],
+            [480],
+            [640],
+            [720],
+            [960]
+          ]
+        ]
+      },
+      631: (t, e, o) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+        const n = o(298),
+          r = {
+            IS_WEBP: !1,
+            isWebp: () => r.IS_WEBP,
+            recordWebpSupported() {
+              r.IS_WEBP = !0;
+              try {
+                window.localStorage && window.localStorage.setItem("isWebpSupport", "1")
+              } catch (t) {}
+            },
+            detectByImage() {
+              const t = new Image;
+              t.onload = function () {
+                t.height > 0 && t.width > 0 && r.recordWebpSupported()
+              }, t.onerror = function () {}, t.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA"
+            },
+            detectByCanvas() {
+              if ("object" != typeof document || !(null === document || void 0 === document ? void 0 : document.createElement)) return;
+              const t = document.createElement("canvas");
+              "function" != typeof t.toDataURL ? r.detectByImage() : 0 === t.toDataURL("image/webp").indexOf("data:image/webp") && r.recordWebpSupported()
+            },
+            detectWebp() {
+              if ("object" != typeof window || "object" != typeof navigator || !window.localStorage) return void(r.IS_WEBP = !1);
+              const t = null === navigator || void 0 === navigator ? void 0 : navigator.userAgent;
+              if (n.IS_PHA.test(t)) r.IS_WEBP = !0;
+              else if (n.IS_ALI_APP.test(t)) r.IS_WEBP = !0;
+              else {
+                try {
+                  const t = window.localStorage.getItem("isWebpSupport");
+                  r.IS_WEBP = "1" === t
+                } catch (t) {}
+                r.IS_WEBP || r.detectByCanvas()
+              }
+            }
+          };
+        r.detectWebp(), e.default = r
+      },
+      41: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.mergeHeaderFooterData = e.isHeaderOrFooterModule = void 0;
+        e.isHeaderOrFooterModule = (t, e) => {
+          const o = {},
+            n = /^[0-9]+$/g;
+          return (t || []).forEach((t => {
+            const {
+              id: e,
+              children: r
+            } = t || {};
+            if (e.includes("hd") || e.includes("hc") || e.includes("ft") || e.includes("fc")) {
+              (r || []).forEach((t => {
+                n.test(t) && (o[t] = 1)
+              }))
+            }
+          })), !!o[e]
+        };
+        e.mergeHeaderFooterData = (t, o) => {
+          const {
+            components: n,
+            layout: r
+          } = t || {}, i = o || {};
+          return Object.keys(n || {}).forEach((t => {
+            const o = n[t] || {},
+              {
+                moduleName: s,
+                widgetId: c
+              } = o,
+              a = i[s];
+            a && (0, e.isHeaderOrFooterModule)(r, c) && (o.moduleData = a.moduleData, o.formData = a.moduleData)
+          })), t
+        }
+      },
+      955: (t, e, o) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.formatData = void 0;
+        const n = o(41);
+        e.formatData = function (t) {
+          const {
+            globalData: e = {}
+          } = t || {}, {
+            aStoreThemeConfig: o = {}
+          } = e, r = (0, n.mergeHeaderFooterData)(t, o.headerFooter), {
+            layout: i = [],
+            components: s = {}
+          } = r || {}, c = /^[0-9]+$/g;
+          if (Array.isArray(i) && i.length) {
+            const e = s || {},
+              o = [],
+              n = [],
+              r = [];
+            return i.forEach((t => {
+              const {
+                id: i,
+                children: s
+              } = t || {};
+
+              function a(t, o) {
+                t.forEach((t => {
+                  c.test(t) && o.push(e[t])
+                }))
+              }
+              i && Array.isArray(s) && (i.includes("hd") || i.includes("hc") ? a(s, o) : i.includes("bd") ? a(s, n) : (i.includes("ft") || i.includes("fc")) && a(s, r))
+            })), Object.assign({
+              headList: o,
+              moduleList: n,
+              footList: r
+            }, t)
+          }
+          return t
+        }
+      },
+      289: function (t, e, o) {
+        "use strict";
+        var n = this && this.__createBinding || (Object.create ? function (t, e, o, n) {
+            void 0 === n && (n = o), Object.defineProperty(t, n, {
+              enumerable: !0,
+              get: function () {
+                return e[o]
+              }
+            })
+          } : function (t, e, o, n) {
+            void 0 === n && (n = o), t[n] = e[o]
+          }),
+          r = this && this.__exportStar || function (t, e) {
+            for (var o in t) "default" === o || Object.prototype.hasOwnProperty.call(e, o) || n(e, t, o)
+          },
+          i = this && this.__importDefault || function (t) {
+            return t && t.__esModule ? t : {
+              default: t
+            }
+          };
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.crossimage = e.getGlobalCSSVariable = e.getStyleFromTheme = void 0;
+        var s = o(788);
+        Object.defineProperty(e, "getStyleFromTheme", {
+          enumerable: !0,
+          get: function () {
+            return s.getStyleFromTheme
+          }
+        }), Object.defineProperty(e, "getGlobalCSSVariable", {
+          enumerable: !0,
+          get: function () {
+            return s.getGlobalCSSVariable
+          }
+        }), r(o(41), e), r(o(902), e), r(o(955), e);
+        var c = o(365);
+        Object.defineProperty(e, "crossimage", {
+          enumerable: !0,
+          get: function () {
+            return i(c).default
+          }
+        })
+      },
+      902: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.sellerRequest = void 0;
+        const o = (t = {}) => {
+          const e = {},
+            o = window.globalData || {};
+          return Object.entries(t).forEach((([t, n]) => {
+            if ("string" == typeof n && n.startsWith("{{") && n.endsWith("}}")) {
+              const {
+                length: r
+              } = n, i = n.slice(2, r - 2), [s, c] = i.split(".");
+              if ("$global" === s) return void(e[t] = o[c])
+            }
+            e[t] = n
+          })), e
+        };
+        e.sellerRequest = (t, e, n = {}) => window.lib.mtop.request(Object.assign(Object.assign({
+          api: t,
+          data: o(e),
+          v: "1.0",
+          dataType: "json",
+          H5Request: !0
+        }, window.mtopGlobalConfig || {}), n))
+      },
+      788: (t, e) => {
+        "use strict";
+        Object.defineProperty(e, "__esModule", {
+          value: !0
+        }), e.getGlobalCSSVariable = e.getStyleFromTheme = void 0;
+        const o = {
+          borderRadiusType: {
+            none: {
+              wl: {
+                "--border-radius": 0
+              },
+              pc: {
+                "--border-radius": 0
+              }
+            },
+            medium: {
+              wl: {
+                "--border-radius": "3px"
+              },
+              pc: {
+                "--border-radius": "6px"
+              }
+            },
+            large: {
+              wl: {
+                "--border-radius": "4px"
+              },
+              pc: {
+                "--border-radius": "8px"
+              }
+            }
+          },
+          fontSizeType: {
+            medium: {
+              wl: {
+                "--font-size": "12px",
+                "--font-size-h1": "24px",
+                "--font-size-h2": "20px",
+                "--font-size-h3": "18px",
+                "--font-size-h4": "15px",
+                "--font-size-h5": "14px",
+                "--font-size-h6": "13px",
+                "--font-size-h7": "12px",
+                "--font-size-h8": "10px"
+              },
+              pc: {
+                "--font-size": "14px",
+                "--font-size-h1": "36px",
+                "--font-size-h2": "28px",
+                "--font-size-h3": "24px",
+                "--font-size-h4": "20px",
+                "--font-size-h5": "18px",
+                "--font-size-h6": "16px",
+                "--font-size-h7": "14px",
+                "--font-size-h8": "12px"
+              }
+            },
+            large: {
+              wl: {
+                "--font-size": "14px"
+              },
+              pc: {
+                "--font-size": "14px"
+              }
+            }
+          },
+          marginType: {
+            medium: {
+              wl: {
+                "--margin": "4px"
+              },
+              pc: {
+                "--margin": "4px"
+              }
+            },
+            large: {
+              wl: {
+                "--margin": "8px"
+              },
+              pc: {
+                "--margin": "8px"
+              }
+            }
+          }
+        };
+        e.getStyleFromTheme = function (t = {}, e = "pc") {
+          const n = {};
+          Object.entries(t).forEach((([t, e]) => {
+            0 === t.indexOf("--") && (n[t] = e)
+          }));
+          const r = n => {
+              const r = t[n] || "medium";
+              return ((o[n] || {})[r] || {})[e] || {}
+            },
+            i = r("borderRadiusType"),
+            s = r("marginType"),
+            c = r("fontSizeType");
+          return `:root{${Object.entries(Object.assign(Object.assign(Object.assign(Object.assign({},n),i),s),c)).map((([t,e])=>`
+          $ {
+            t
+          }: $ {
+            e
+          };
+          `)).join("")}}`
+        }, e.getGlobalCSSVariable = function (t = {}) {
+          const o = (0, e.getStyleFromTheme)(t, "wl");
+          return `\n  ${(0,e.getStyleFromTheme)(t,"pc")}\n  @media screen and (max-width: 767.98px) {\n    ${o}\n  }\n  `
+        }
+      },
+      240: () => {
+        ! function () {
+          "use strict";
+          if ("object" == typeof window)
+            if ("IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in window.IntersectionObserverEntry.prototype) "isIntersecting" in window.IntersectionObserverEntry.prototype || Object.defineProperty(window.IntersectionObserverEntry.prototype, "isIntersecting", {
+              get: function () {
+                return this.intersectionRatio > 0
+              }
+            });
+            else {
+              var t = function (t) {
+                  for (var e = window.document, o = r(e); o;) o = r(e = o.ownerDocument);
+                  return e
+                }(),
+                e = [],
+                o = null,
+                n = null;
+              s.prototype.THROTTLE_TIMEOUT = 100, s.prototype.POLL_INTERVAL = null, s.prototype.USE_MUTATION_OBSERVER = !0, s._setupCrossOriginUpdater = function () {
+                return o || (o = function (t, o) {
+                  n = t && o ? f(t, o) : {
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    width: 0,
+                    height: 0
+                  }, e.forEach((function (t) {
+                    t._checkForIntersections()
+                  }))
+                }), o
+              }, s._resetCrossOriginUpdater = function () {
+                o = null, n = null
+              }, s.prototype.observe = function (t) {
+                if (!this._observationTargets.some((function (e) {
+                    return e.element == t
+                  }))) {
+                  if (!t || 1 != t.nodeType) throw new Error("target must be an Element");
+                  this._registerInstance(), this._observationTargets.push({
+                    element: t,
+                    entry: null
+                  }), this._monitorIntersections(t.ownerDocument), this._checkForIntersections()
+                }
+              }, s.prototype.unobserve = function (t) {
+                this._observationTargets = this._observationTargets.filter((function (e) {
+                  return e.element != t
+                })), this._unmonitorIntersections(t.ownerDocument), 0 == this._observationTargets.length && this._unregisterInstance()
+              }, s.prototype.disconnect = function () {
+                this._observationTargets = [], this._unmonitorAllIntersections(), this._unregisterInstance()
+              }, s.prototype.takeRecords = function () {
+                var t = this._queuedEntries.slice();
+                return this._queuedEntries = [], t
+              }, s.prototype._initThresholds = function (t) {
+                var e = t || [0];
+                return Array.isArray(e) || (e = [e]), e.sort().filter((function (t, e, o) {
+                  if ("number" != typeof t || isNaN(t) || t < 0 || t > 1) throw new Error("threshold must be a number between 0 and 1 inclusively");
+                  return t !== o[e - 1]
+                }))
+              }, s.prototype._parseRootMargin = function (t) {
+                var e = (t || "0px").split(/\s+/).map((function (t) {
+                  var e = /^(-?\d*\.?\d+)(px|%)$/.exec(t);
+                  if (!e) throw new Error("rootMargin must be specified in pixels or percent");
+                  return {
+                    value: parseFloat(e[1]),
+                    unit: e[2]
+                  }
+                }));
+                return e[1] = e[1] || e[0], e[2] = e[2] || e[0], e[3] = e[3] || e[1], e
+              }, s.prototype._monitorIntersections = function (e) {
+                var o = e.defaultView;
+                if (o && -1 == this._monitoringDocuments.indexOf(e)) {
+                  var n = this._checkForIntersections,
+                    i = null,
+                    s = null;
+                  this.POLL_INTERVAL ? i = o.setInterval(n, this.POLL_INTERVAL) : (c(o, "resize", n, !0), c(e, "scroll", n, !0), this.USE_MUTATION_OBSERVER && "MutationObserver" in o && (s = new o.MutationObserver(n)).observe(e, {
+                    attributes: !0,
+                    childList: !0,
+                    characterData: !0,
+                    subtree: !0
+                  })), this._monitoringDocuments.push(e), this._monitoringUnsubscribes.push((function () {
+                    var t = e.defaultView;
+                    t && (i && t.clearInterval(i), a(t, "resize", n, !0)), a(e, "scroll", n, !0), s && s.disconnect()
+                  }));
+                  var u = this.root && (this.root.ownerDocument || this.root) || t;
+                  if (e != u) {
+                    var l = r(e);
+                    l && this._monitorIntersections(l.ownerDocument)
+                  }
+                }
+              }, s.prototype._unmonitorIntersections = function (e) {
+                var o = this._monitoringDocuments.indexOf(e);
+                if (-1 != o) {
+                  var n = this.root && (this.root.ownerDocument || this.root) || t,
+                    i = this._observationTargets.some((function (t) {
+                      var o = t.element.ownerDocument;
+                      if (o == e) return !0;
+                      for (; o && o != n;) {
+                        var i = r(o);
+                        if ((o = i && i.ownerDocument) == e) return !0
+                      }
+                      return !1
+                    }));
+                  if (!i) {
+                    var s = this._monitoringUnsubscribes[o];
+                    if (this._monitoringDocuments.splice(o, 1), this._monitoringUnsubscribes.splice(o, 1), s(), e != n) {
+                      var c = r(e);
+                      c && this._unmonitorIntersections(c.ownerDocument)
+                    }
+                  }
+                }
+              }, s.prototype._unmonitorAllIntersections = function () {
+                var t = this._monitoringUnsubscribes.slice(0);
+                this._monitoringDocuments.length = 0, this._monitoringUnsubscribes.length = 0;
+                for (var e = 0; e < t.length; e++) t[e]()
+              }, s.prototype._checkForIntersections = function () {
+                if (this.root || !o || n) {
+                  var t = this._rootIsInDom(),
+                    e = t ? this._getRootRect() : {
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      width: 0,
+                      height: 0
+                    };
+                  this._observationTargets.forEach((function (n) {
+                    var r = n.element,
+                      s = u(r),
+                      c = this._rootContainsTarget(r),
+                      a = n.entry,
+                      l = t && c && this._computeTargetAndRootIntersection(r, s, e),
+                      f = null;
+                    this._rootContainsTarget(r) ? o && !this.root || (f = e) : f = {
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      width: 0,
+                      height: 0
+                    };
+                    var d = n.entry = new i({
+                      time: window.performance && performance.now && performance.now(),
+                      target: r,
+                      boundingClientRect: s,
+                      rootBounds: f,
+                      intersectionRect: l
+                    });
+                    a ? t && c ? this._hasCrossedThreshold(a, d) && this._queuedEntries.push(d) : a && a.isIntersecting && this._queuedEntries.push(d) : this._queuedEntries.push(d)
+                  }), this), this._queuedEntries.length && this._callback(this.takeRecords(), this)
+                }
+              }, s.prototype._computeTargetAndRootIntersection = function (e, r, i) {
+                if ("none" != window.getComputedStyle(e).display) {
+                  for (var s, c, a, l, d, p, m, g, b = r, y = h(e), v = !1; !v && y;) {
+                    var _ = null,
+                      w = 1 == y.nodeType ? window.getComputedStyle(y) : {};
+                    if ("none" == w.display) return null;
+                    if (y == this.root || 9 == y.nodeType)
+                      if (v = !0, y == this.root || y == t) o && !this.root ? !n || 0 == n.width && 0 == n.height ? (y = null, _ = null, b = null) : _ = n : _ = i;
+                      else {
+                        var O = h(y),
+                          I = O && u(O),
+                          E = O && this._computeTargetAndRootIntersection(O, I, i);
+                        I && E ? (y = O, _ = f(I, E)) : (y = null, b = null)
+                      }
+                    else {
+                      var S = y.ownerDocument;
+                      y != S.body && y != S.documentElement && "visible" != w.overflow && (_ = u(y))
+                    }
+                    if (_ && (s = _, c = b, a = void 0, l = void 0, d = void 0, p = void 0, m = void 0, g = void 0, a = Math.max(s.top, c.top), l = Math.min(s.bottom, c.bottom), d = Math.max(s.left, c.left), p = Math.min(s.right, c.right), g = l - a, b = (m = p - d) >= 0 && g >= 0 && {
+                        top: a,
+                        bottom: l,
+                        left: d,
+                        right: p,
+                        width: m,
+                        height: g
+                      } || null), !b) break;
+                    y = y && h(y)
+                  }
+                  return b
+                }
+              }, s.prototype._getRootRect = function () {
+                var e;
+                if (this.root && !p(this.root)) e = u(this.root);
+                else {
+                  var o = p(this.root) ? this.root : t,
+                    n = o.documentElement,
+                    r = o.body;
+                  e = {
+                    top: 0,
+                    left: 0,
+                    right: n.clientWidth || r.clientWidth,
+                    width: n.clientWidth || r.clientWidth,
+                    bottom: n.clientHeight || r.clientHeight,
+                    height: n.clientHeight || r.clientHeight
+                  }
+                }
+                return this._expandRectByRootMargin(e)
+              }, s.prototype._expandRectByRootMargin = function (t) {
+                var e = this._rootMarginValues.map((function (e, o) {
+                    return "px" == e.unit ? e.value : e.value * (o % 2 ? t.width : t.height) / 100
+                  })),
+                  o = {
+                    top: t.top - e[0],
+                    right: t.right + e[1],
+                    bottom: t.bottom + e[2],
+                    left: t.left - e[3]
+                  };
+                return o.width = o.right - o.left, o.height = o.bottom - o.top, o
+              }, s.prototype._hasCrossedThreshold = function (t, e) {
+                var o = t && t.isIntersecting ? t.intersectionRatio || 0 : -1,
+                  n = e.isIntersecting ? e.intersectionRatio || 0 : -1;
+                if (o !== n)
+                  for (var r = 0; r < this.thresholds.length; r++) {
+                    var i = this.thresholds[r];
+                    if (i == o || i == n || i < o != i < n) return !0
+                  }
+              }, s.prototype._rootIsInDom = function () {
+                return !this.root || d(t, this.root)
+              }, s.prototype._rootContainsTarget = function (e) {
+                var o = this.root && (this.root.ownerDocument || this.root) || t;
+                return d(o, e) && (!this.root || o == e.ownerDocument)
+              }, s.prototype._registerInstance = function () {
+                e.indexOf(this) < 0 && e.push(this)
+              }, s.prototype._unregisterInstance = function () {
+                var t = e.indexOf(this); - 1 != t && e.splice(t, 1)
+              }, window.IntersectionObserver = s, window.IntersectionObserverEntry = i
+            }
+          function r(t) {
+            try {
+              return t.defaultView && t.defaultView.frameElement || null
+            } catch (t) {
+              return null
+            }
+          }
+
+          function i(t) {
+            this.time = t.time, this.target = t.target, this.rootBounds = l(t.rootBounds), this.boundingClientRect = l(t.boundingClientRect), this.intersectionRect = l(t.intersectionRect || {
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              width: 0,
+              height: 0
+            }), this.isIntersecting = !!t.intersectionRect;
+            var e = this.boundingClientRect,
+              o = e.width * e.height,
+              n = this.intersectionRect,
+              r = n.width * n.height;
+            this.intersectionRatio = o ? Number((r / o).toFixed(4)) : this.isIntersecting ? 1 : 0
+          }
+
+          function s(t, e) {
+            var o, n, r, i = e || {};
+            if ("function" != typeof t) throw new Error("callback must be a function");
+            if (i.root && 1 != i.root.nodeType && 9 != i.root.nodeType) throw new Error("root must be a Document or Element");
+            this._checkForIntersections = (o = this._checkForIntersections.bind(this), n = this.THROTTLE_TIMEOUT, r = null, function () {
+              r || (r = setTimeout((function () {
+                o(), r = null
+              }), n))
+            }), this._callback = t, this._observationTargets = [], this._queuedEntries = [], this._rootMarginValues = this._parseRootMargin(i.rootMargin), this.thresholds = this._initThresholds(i.threshold), this.root = i.root || null, this.rootMargin = this._rootMarginValues.map((function (t) {
+              return t.value + t.unit
+            })).join(" "), this._monitoringDocuments = [], this._monitoringUnsubscribes = []
+          }
+
+          function c(t, e, o, n) {
+            "function" == typeof t.addEventListener ? t.addEventListener(e, o, n || !1) : "function" == typeof t.attachEvent && t.attachEvent("on" + e, o)
+          }
+
+          function a(t, e, o, n) {
+            "function" == typeof t.removeEventListener ? t.removeEventListener(e, o, n || !1) : "function" == typeof t.detachEvent && t.detachEvent("on" + e, o)
+          }
+
+          function u(t) {
+            var e;
+            try {
+              e = t.getBoundingClientRect()
+            } catch (t) {}
+            return e ? (e.width && e.height || (e = {
+              top: e.top,
+              right: e.right,
+              bottom: e.bottom,
+              left: e.left,
+              width: e.right - e.left,
+              height: e.bottom - e.top
+            }), e) : {
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              width: 0,
+              height: 0
+            }
+          }
+
+          function l(t) {
+            return !t || "x" in t ? t : {
+              top: t.top,
+              y: t.top,
+              bottom: t.bottom,
+              left: t.left,
+              x: t.left,
+              right: t.right,
+              width: t.width,
+              height: t.height
+            }
+          }
+
+          function f(t, e) {
+            var o = e.top - t.top,
+              n = e.left - t.left;
+            return {
+              top: o,
+              left: n,
+              height: e.height,
+              width: e.width,
+              bottom: o + e.height,
+              right: n + e.width
+            }
+          }
+
+          function d(t, e) {
+            for (var o = e; o;) {
+              if (o == t) return !0;
+              o = h(o)
+            }
+            return !1
+          }
+
+          function h(e) {
+            var o = e.parentNode;
+            return 9 == e.nodeType && e != t ? r(e) : (o && o.assignedSlot && (o = o.assignedSlot.parentNode), o && 11 == o.nodeType && o.host ? o.host : o)
+          }
+
+          function p(t) {
+            return t && 9 === t.nodeType
+          }
+        }()
+      }
+    },
+    e = {};
+
+  function o(n) {
+    var r = e[n];
+    if (void 0 !== r) return r.exports;
+    var i = e[n] = {
+      exports: {}
+    };
+    return t[n].call(i.exports, i, i.exports, o), i.exports
+  }
+  o.d = (t, e) => {
+    for (var n in e) o.o(e, n) && !o.o(t, n) && Object.defineProperty(t, n, {
+      enumerable: !0,
+      get: e[n]
+    })
+  }, o.o = (t, e) => Object.prototype.hasOwnProperty.call(t, e), o.r = t => {
+    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, {
+      value: "Module"
+    }), Object.defineProperty(t, "__esModule", {
+      value: !0
+    })
+  }, (() => {
+    "use strict";
+    var t = {};
+
+    function e(t) {
+      return e = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
+        return typeof t
+      } : function (t) {
+        return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
+      }, e(t)
+    }
+
+    function n() {
+      return "object" === ("undefined" == typeof window ? "undefined" : e(window))
+    }
+
+    function r(t, e) {
+      for (var o = 0; o < e.length; o++) {
+        var n = e[o];
+        n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(t, n.key, n)
+      }
+    }
+
+    function i(t, e, o) {
+      return e && r(t.prototype, e), o && r(t, o), Object.defineProperty(t, "prototype", {
+        writable: !1
+      }), t
+    }
+
+    function s(t, e) {
+      if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function")
+    }
+    o.r(t), o.d(t, {
+      ObserveDomWillShow: () => E,
+      globalLazyLoadImage: () => R,
+      isClient: () => n,
+      isMobile: () => T,
+      isPc: () => M
+    });
+    var c = i((function t() {
+        s(this, t), this.dom = null, this.Observer = void 0
+      })),
+      a = function () {
+        function t() {
+          s(this, t)
+        }
+        return i(t, [{
+          key: "format",
+          value: function (t) {
+            var e = this,
+              o = t || {};
+            Object.keys(this).forEach((function (t) {
+              o[t] && (e[t] = o[t])
+            }))
+          }
+        }]), t
+      }(),
+      u = function (t) {
+        return !!n() && ("IntersectionObserver" in t && "IntersectionObserverEntry" in t && "intersectionRatio" in t.IntersectionObserverEntry.prototype)
+      }(window);
+    o(240);
+
+    function l(t) {
+      return l = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
+        return typeof t
+      } : function (t) {
+        return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
+      }, l(t)
+    }
+
+    function f(t, e) {
+      return function (t) {
+        if (Array.isArray(t)) return t
+      }(t) || function (t, e) {
+        var o = null == t ? null : "undefined" != typeof Symbol && t[Symbol.iterator] || t["@@iterator"];
+        if (null == o) return;
+        var n, r, i = [],
+          s = !0,
+          c = !1;
+        try {
+          for (o = o.call(t); !(s = (n = o.next()).done) && (i.push(n.value), !e || i.length !== e); s = !0);
+        } catch (t) {
+          c = !0, r = t
+        } finally {
+          try {
+            s || null == o.return || o.return()
+          } finally {
+            if (c) throw r
+          }
+        }
+        return i
+      }(t, e) || function (t, e) {
+        if (!t) return;
+        if ("string" == typeof t) return d(t, e);
+        var o = Object.prototype.toString.call(t).slice(8, -1);
+        "Object" === o && t.constructor && (o = t.constructor.name);
+        if ("Map" === o || "Set" === o) return Array.from(t);
+        if ("Arguments" === o || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(o)) return d(t, e)
+      }(t, e) || function () {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+      }()
+    }
+
+    function d(t, e) {
+      (null == e || e > t.length) && (e = t.length);
+      for (var o = 0, n = new Array(e); o < e; o++) n[o] = t[o];
+      return n
+    }
+
+    function h(t, e) {
+      for (var o = 0; o < e.length; o++) {
+        var n = e[o];
+        n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(t, n.key, n)
+      }
+    }
+
+    function p(t, e, o) {
+      return e && h(t.prototype, e), o && h(t, o), Object.defineProperty(t, "prototype", {
+        writable: !1
+      }), t
+    }
+
+    function m(t, e) {
+      if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function")
+    }
+
+    function g(t, e) {
+      if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
+      t.prototype = Object.create(e && e.prototype, {
+        constructor: {
+          value: t,
+          writable: !0,
+          configurable: !0
+        }
+      }), Object.defineProperty(t, "prototype", {
+        writable: !1
+      }), e && b(t, e)
+    }
+
+    function b(t, e) {
+      return b = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+        return t.__proto__ = e, t
+      }, b(t, e)
+    }
+
+    function y(t) {
+      var e = function () {
+        if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+        if (Reflect.construct.sham) return !1;
+        if ("function" == typeof Proxy) return !0;
+        try {
+          return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {}))), !0
+        } catch (t) {
+          return !1
+        }
+      }();
+      return function () {
+        var o, n = _(t);
+        if (e) {
+          var r = _(this).constructor;
+          o = Reflect.construct(n, arguments, r)
+        } else o = n.apply(this, arguments);
+        return v(this, o)
+      }
+    }
+
+    function v(t, e) {
+      if (e && ("object" === l(e) || "function" == typeof e)) return e;
+      if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+      return function (t) {
+        if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        return t
+      }(t)
+    }
+
+    function _(t) {
+      return _ = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
+        return t.__proto__ || Object.getPrototypeOf(t)
+      }, _(t)
+    }
+    var w = function (t) {
+        g(o, t);
+        var e = y(o);
+
+        function o(t) {
+          var n;
+          return m(this, o), (n = e.call(this)).callback = function () {}, n.key = "", n.format(t), n
+        }
+        return p(o)
+      }(a),
+      O = function (t) {
+        g(o, t);
+        var e = y(o);
+
+        function o(t) {
+          var n;
+          return m(this, o), (n = e.call(this)).rootMargin = "", n.bottom = 200, n.format(t), n
+        }
+        return p(o, [{
+          key: "rootMarginPx",
+          get: function () {
+            return this.rootMargin ? "string" == typeof this.rootMargin ? this.rootMargin : "".concat(this.rootMargin, "px") : this.bottom ? "0px 0px ".concat(this.bottom, "px 0px") : "0px"
+          }
+        }]), o
+      }(a),
+      I = function (t) {
+        g(o, t);
+        var e = y(o);
+
+        function o(t) {
+          var n;
+          return m(this, o), (n = e.call(this)).opts = new w, n.dom = null, n.format(t), n
+        }
+        return p(o)
+      }(a);
+    var E = function (t) {
+        g(o, t);
+        var e = y(o);
+
+        function o(t) {
+          var n;
+          m(this, o), (n = e.call(this)).queue = [], n.callbackQueue = [];
+          var r = new O(t);
+          return n.Observer = new IntersectionObserver((function (t) {
+            t.forEach((function (t, e) {
+              if (t.isIntersecting) {
+                var o = f(n.queue.filter((function (e) {
+                    return e.dom === t.target
+                  })), 1)[0],
+                  r = (i = function () {
+                    o.opts.callback()
+                  }, "undefined" == typeof window ? setTimeout(i, 0) : "requestAnimationFrame" in window ? window.requestAnimationFrame(i) : setTimeout(i, 0));
+                n.callbackQueue.push(r)
+              }
+              var i
+            }))
+          }), {
+            rootMargin: r.rootMarginPx
+          }), n
+        }
+        return p(o, [{
+          key: "getKey",
+          value: function (t) {
+            return t || this.queue.length + 1
+          }
+        }, {
+          key: "observe",
+          value: function (t, e) {
+            var o;
+            this.dom = t;
+            var n = new w(e);
+            if (!u || !t) return n.callback(), void(t || console.error("缂哄皯闇€瑕佺洃鍚殑dom"));
+            n.key = this.getKey(n.key), this.queue.push(new I({
+              opts: n,
+              dom: t
+            })), null === (o = this.Observer) || void 0 === o || o.observe(t)
+          }
+        }, {
+          key: "unobserveAll",
+          value: function () {
+            var t = this;
+            this.Observer && (this.queue.forEach((function (e) {
+              var o;
+              e.dom && (null === (o = t.Observer) || void 0 === o || o.unobserve(e.dom))
+            })), this.queue = [])
+          }
+        }, {
+          key: "unobserve",
+          value: function (t) {
+            if (t) {
+              var e, o = this.queue.filter((function (o) {
+                return o.opts.key !== t && o.dom !== t || (e = o), o.opts.key !== t || o.dom !== t
+              }));
+              this.Observer && e && e.dom && (this.Observer.unobserve(e.dom), this.queue = o)
+            }
+          }
+        }, {
+          key: "destroy",
+          value: function () {
+            var t = this;
+            this.Observer && (this.queue.forEach((function (e) {
+              e.dom && t.Observer && t.Observer.unobserve(e.dom)
+            })), this.queue = [], this.Observer.disconnect(), this.callbackQueue.forEach((function (t) {
+              return function (t) {
+                return "undefined" == typeof window ? clearTimeout(t) : "requestAnimationFrame" in window ? cancelAnimationFrame(t) : clearTimeout(t)
+              }(t)
+            })))
+          }
+        }]), o
+      }(c),
+      S = o(289);
+
+    function R(t) {
+      if ("undefined" != typeof window) {
+        var e = new E(t);
+        if (o(), "MutationObserver" in window) new MutationObserver((function () {
+          e.unobserveAll(), o()
+        })).observe(document.body, {
+          childList: !0,
+          subtree: !0
+        });
+        else window.addEventListener("DOMSubtreeModified", (function () {
+          e.unobserveAll(), o()
+        }), !1)
+      }
+
+      function o() {
+        var t = document.querySelectorAll("[data-src][lazyload],[data-bg][lazyload]");
+        Array.prototype.forEach.call(t, (function (t) {
+          e.observe(t, {
+            callback: function () {
+              requestAnimationFrame((function () {
+                var o = t.dataset.src || t.dataset.bg;
+                if (o) {
+                  var n = !!t.dataset.src,
+                    r = S.crossimage.getFitUrl(o, t.offsetWidth, t.offsetHeight, {}),
+                    i = new Image;
+                  i.src = r || o, i.onload = function () {
+                    n ? t.src = i.src : t.style.backgroundImage = "url('".concat(i.src, "')"), e.unobserve(t)
+                  }, i.onerror = function (t) {
+                    console.log(t)
+                  }, t.removeAttribute("lazyload"), t.removeAttribute("data-src"), t.removeAttribute("data-bg")
+                }
+              }))
+            }
+          })
+        }))
+      }
+    }
+
+    function T() {
+      return /Mobi|Android|iPhone/i.test(navigator.userAgent)
+    }
+
+    function M() {
+      return !T()
+    }! function (e) {
+      void 0 !== e && (null != e && e.utils || (e.utils = {}), Object.keys(t).forEach((function (o) {
+        e.utils[o] = t[o]
+      })))
+    }(window)
+  })()
+})();
+  </script>
   <script>
     window.utils.globalLazyLoadImage({
         rootMargin: '0px 0px 10px 0px'
