@@ -337,8 +337,6 @@
     global.lib.mtop.middlewares.push(middlewareSession);
   })(window);
 </script>
-
-      <body class="template-index" data-spm="index">
   <script name="hotcss.js">
     (function( window , document ){
       var hotcss = {};
@@ -616,15 +614,17 @@
         style="position: relative;"
       >
         
-        <picture style="position: absolute; left:0; top:0; right: 0; bottom: 0;">
+        <picture class="lazyload" style="position: absolute; left:0; top:0; right: 0; bottom: 0;">
             <source 
+              class="lazyload"
               style="width: 100%; height: 100%; object-fit: cover;"
-              srcset="https://fb.dtceasy-cdn.com/kf/Sd468bb80862b484aaabe2a16669cca15U.jpg_q75.jpg_.webp?width=1920&height=700"
+              data-srcset="https://fb.dtceasy-cdn.com/kf/Sd468bb80862b484aaabe2a16669cca15U.jpg_q75.jpg_.webp?width=1920&height=700"
               type="image/webp"
             >
             <img 
+              class="lazyload"
               style="width: 100%; height: 100%; object-fit: cover;"
-              src="https://fb.dtceasy-cdn.com/kf/Sd468bb80862b484aaabe2a16669cca15U.jpg_q75.jpg?width=1920&height=700"
+              daat-src="https://fb.dtceasy-cdn.com/kf/Sd468bb80862b484aaabe2a16669cca15U.jpg_q75.jpg?width=1920&height=700"
             >
         </picture>
     
@@ -2086,250 +2086,247 @@
       });
     })();
   </script>
-
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"728e97af1d996459","token":"621c547175d4430eb22b33365d3a8308","version":"2022.6.0","si":100}' crossorigin="anonymous"></script>
-</body>
-      <script defer src="//assets.dtceasy-cdn.com/AWSC/AWSC/awsc.js"></script>
-<script>
-  window.umidToken = "defaultToken1_um_not_loaded@@" + location.href + "@@" + new Date().getTime();
-  window.addEventListener('load', function () {
-    AWSC.use("um", function (state, umModule) {
-      if (state === "loaded") {
-          window.umidToken = "defaultToken3_init_callback_not_called@@" + location.href + "@@" + new Date().getTime();
-          umModule.init({
-              appName: 'global-buyer-portal',
-              serviceLocation: 'cn'
-          }, function (initState, result) {
-              if (initState === 'success') {
-                  window.umidToken = result.tn;
-              } else {
-                  window.umidToken = "defaultToken4_init_failed with " + initState + "@@" + location.href + "@@" + new Date().getTime();
-              }
-          }
-          );
-      } else {
-          window.umidToken = "defaultToken2_load_failed with " + state + "@@" + location.href + "@@" + new Date().getTime();
-      }
+  <script src="//fb.dtceasy-cdn.com/kf/S0bbe73d46eba47f9b91022e2fc3370ebK.js"></script>
+  <script defer src="//assets.dtceasy-cdn.com/AWSC/AWSC/awsc.js"></script>
+  <script>
+    window.umidToken = "defaultToken1_um_not_loaded@@" + location.href + "@@" + new Date().getTime();
+    window.addEventListener('load', function () {
+      AWSC.use("um", function (state, umModule) {
+        if (state === "loaded") {
+            window.umidToken = "defaultToken3_init_callback_not_called@@" + location.href + "@@" + new Date().getTime();
+            umModule.init({
+                appName: 'global-buyer-portal',
+                serviceLocation: 'cn'
+            }, function (initState, result) {
+                if (initState === 'success') {
+                    window.umidToken = result.tn;
+                } else {
+                    window.umidToken = "defaultToken4_init_failed with " + initState + "@@" + location.href + "@@" + new Date().getTime();
+                }
+            }
+            );
+        } else {
+            window.umidToken = "defaultToken2_load_failed with " + state + "@@" + location.href + "@@" + new Date().getTime();
+        }
+      });
     });
-  });
-</script>
-
-<script>
-  window.AES_CONFIG = window.AES_CONFIG || {};
-  AES_CONFIG.pid = 'dtc-sg';
-  AES_CONFIG.user_type = '101';
-  AES_CONFIG.uid = '';
-  AES_CONFIG.username = '';
-  AES_CONFIG.dim1 = '15012001';
-  AES_CONFIG.page_id = 'index';
-</script>
-
-<script defer src="//assets.dtceasy-cdn.com/aes/??tracker/1.0.34/index.js,tracker-plugin-pv/2.4.5/index.js,tracker-plugin-event/1.2.5/index.js,tracker-plugin-jserror/1.0.13/index.js,tracker-plugin-api/1.1.13/index.js,tracker-plugin-perf/1.1.8/index.js,tracker-plugin-eventTiming/1.0.3/index.js"></script><link media="print" onload="this.media='all'; this.onload=null;" rel="stylesheet" href="https://assets.dtceasy-cdn.com/dtc-fe/policy-control/0.0.8/main.css"><script defer src="//fb.dtceasy-cdn.com/kf/S2ed284dc691c4395af50214f3f74a35co.js"></script>
-<script>
-  (function(window, document) {
-    var SEMRC = window.SEM_REMARKETING_CONFIG || {};
-    SEMRC.runtime = 'async';
-    window.SEM_REMARKETING_CONFIG = SEMRC;
-    var SEMRD = window.SEM_REMARKETING_DATA || {};
-    SEMRD.pageType = 15012001;
-    var map = {
-      index: 'AMES_Home',
-      search: 'AMES_List',
-      product: 'AMES_Detail',
-      landingpage: 'AMES_LP',
-    };
-    SEMRD.siteName = map['index'] || 'AMES_Other';
-    SEMRD.productId = '';
-    SEMRD.login = !!0;
-    window.SEM_REMARKETING_DATA = SEMRD;
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = '//assets.dtceasy-cdn.com/sc/cdn-sem-remarketing/0.0.2/main.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(script, s);
-      }, 200);
-    });
-  })(window, document);
-</script>
-
-<script defer src="//fb.dtceasy-cdn.com/kf/S0bbe73d46eba47f9b91022e2fc3370ebK.js"></script>
-<style>
-  .fb_dialog_content iframe {
-    bottom: 150px !important;
-    right: 18px !important;
-    left: unset !important;
-  }
-
-  @media screen and (min-width: 768px) {
-    .fb_iframe_widget iframe {
-      bottom: 130px !important;
+  </script>
+  
+  <script>
+    window.AES_CONFIG = window.AES_CONFIG || {};
+    AES_CONFIG.pid = 'dtc-sg';
+    AES_CONFIG.user_type = '101';
+    AES_CONFIG.uid = '';
+    AES_CONFIG.username = '';
+    AES_CONFIG.dim1 = '15012001';
+    AES_CONFIG.page_id = 'index';
+  </script>
+  
+  <script defer src="//assets.dtceasy-cdn.com/aes/??tracker/1.0.34/index.js,tracker-plugin-pv/2.4.5/index.js,tracker-plugin-event/1.2.5/index.js,tracker-plugin-jserror/1.0.13/index.js,tracker-plugin-api/1.1.13/index.js,tracker-plugin-perf/1.1.8/index.js,tracker-plugin-eventTiming/1.0.3/index.js"></script><link media="print" onload="this.media='all'; this.onload=null;" rel="stylesheet" href="https://assets.dtceasy-cdn.com/dtc-fe/policy-control/0.0.8/main.css"><script defer src="//fb.dtceasy-cdn.com/kf/S2ed284dc691c4395af50214f3f74a35co.js"></script>
+  <script>
+    (function(window, document) {
+      var SEMRC = window.SEM_REMARKETING_CONFIG || {};
+      SEMRC.runtime = 'async';
+      window.SEM_REMARKETING_CONFIG = SEMRC;
+      var SEMRD = window.SEM_REMARKETING_DATA || {};
+      SEMRD.pageType = 15012001;
+      var map = {
+        index: 'AMES_Home',
+        search: 'AMES_List',
+        product: 'AMES_Detail',
+        landingpage: 'AMES_LP',
+      };
+      SEMRD.siteName = map['index'] || 'AMES_Other';
+      SEMRD.productId = '';
+      SEMRD.login = !!0;
+      window.SEM_REMARKETING_DATA = SEMRD;
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = '//assets.dtceasy-cdn.com/sc/cdn-sem-remarketing/0.0.2/main.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(script, s);
+        }, 200);
+      });
+    })(window, document);
+  </script>
+  
+  <style>
+    .fb_dialog_content iframe {
+      bottom: 150px !important;
       right: 18px !important;
       left: unset !important;
     }
-
-    .fb_iframe_widget iframe.im_show {
-      max-height: calc(100% - 124px) !important;
+  
+    @media screen and (min-width: 768px) {
+      .fb_iframe_widget iframe {
+        bottom: 130px !important;
+        right: 18px !important;
+        left: unset !important;
+      }
+  
+      .fb_iframe_widget iframe.im_show {
+        max-height: calc(100% - 124px) !important;
+      }
     }
-  }
-
-  .fb-customerchat {
-    display: none !important;
-  }
-</style>
-
-<div id="fb-root"></div>
-
-<div id="fb-customer-chat" class="fb-customerchat"></div>
-
-<script>
-  (function () {
-    window.addEventListener('load', function () {
-      window.lib.mtop
-        .request({
-          api: 'mtop.global.dtc.crm.customer.ImRequestFacade.queryImInfo4Buyer',
-          v: '1.0',
-        })
-        .then(function (res) {
-          if (res && res.data && res.data.module) {
-            return res.data.module;
-          }
-
-          return undefined
-        })
-        .then(function (imInfo) {
-          if (imInfo) {
-            var notifySwitch = imInfo.notifySwitch;
-            var socialMediaInfoList = imInfo.socialMediaInfoList || [];
-            var imSettings;
-            for (var i = 0; i < socialMediaInfoList.length; i++) {
-              var item = socialMediaInfoList[i];
-              if (item.type === '1') {
-                imSettings = item;
-              }
+  
+    .fb-customerchat {
+      display: none !important;
+    }
+  </style>
+  
+  <div id="fb-root"></div>
+  
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  
+  <script>
+    (function () {
+      window.addEventListener('load', function () {
+        window.lib.mtop
+          .request({
+            api: 'mtop.global.dtc.crm.customer.ImRequestFacade.queryImInfo4Buyer',
+            v: '1.0',
+          })
+          .then(function (res) {
+            if (res && res.data && res.data.module) {
+              return res.data.module;
             }
-
-            if (imSettings && imSettings.url && notifySwitch === '1') {
-              var regexp = /m.me\/(\d+)/;
-              var matchResult = imSettings.url.match(regexp);
-              if (!matchResult) {
-                return null;
+  
+            return undefined
+          })
+          .then(function (imInfo) {
+            if (imInfo) {
+              var notifySwitch = imInfo.notifySwitch;
+              var socialMediaInfoList = imInfo.socialMediaInfoList || [];
+              var imSettings;
+              for (var i = 0; i < socialMediaInfoList.length; i++) {
+                var item = socialMediaInfoList[i];
+                if (item.type === '1') {
+                  imSettings = item;
+                }
               }
-              var chatbox = document.getElementById('fb-customer-chat');
-              chatbox.setAttribute('page_id', matchResult[1]);
-              chatbox.setAttribute('attribution', 'biz_inbox');
-              var toggleClass = function (show) {
-                var dom = document.querySelector('.fb_iframe_widget iframe');
-                var classMap = {
-                  show: 'im_show',
+  
+              if (imSettings && imSettings.url && notifySwitch === '1') {
+                var regexp = /m.me\/(\d+)/;
+                var matchResult = imSettings.url.match(regexp);
+                if (!matchResult) {
+                  return null;
+                }
+                var chatbox = document.getElementById('fb-customer-chat');
+                chatbox.setAttribute('page_id', matchResult[1]);
+                chatbox.setAttribute('attribution', 'biz_inbox');
+                var toggleClass = function (show) {
+                  var dom = document.querySelector('.fb_iframe_widget iframe');
+                  var classMap = {
+                    show: 'im_show',
+                  };
+                  if (show) {
+                    dom.classList.add(classMap.show);
+                  } else {
+                    dom.classList.remove(classMap.show);
+                  }
                 };
-                if (show) {
-                  dom.classList.add(classMap.show);
-                } else {
-                  dom.classList.remove(classMap.show);
-                }
-              };
-              var interval = null;
-              var toggleDialogIframeStyle = function () {
-                var dom = document.querySelector('.fb_iframe_widget iframe');
-                if (!dom) {
-                  return;
-                }
-                var height = dom.style.maxHeight;
-                if (height) {
-                  clearInterval(interval);
-                }
-                if (height === '0px' || !height) {
-                  toggleClass(false);
-                } else {
-                  toggleClass(true);
-                }
-              };
-
-              window.fbAsyncInit = function () {
-                FB.init({
-                  xfbml: true,
-                  version: 'v12.0',
-                });
-                FB.Event.subscribe('customerchat.load', function () {
-                  interval = setInterval(function () {
-                    toggleDialogIframeStyle();
-                  }, 500);
-                });
-                FB.Event.subscribe('customerchat.dialogShow', function () {
-                  toggleClass(true);
-                  window.goldlog.record('/dtceasy.common', 'CLK', 'component_name=im_button');
-                });
-                FB.Event.subscribe('customerchat.dialogHide', function () {
-                  toggleClass(false);
-                });
-                window.goldlog.record('/dtceasy.common', 'EXP', 'component_name=im_button');
-              };
-
-              (function (d, s, id) {
-                var js,
-                  fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-                fjs.parentNode.insertBefore(js, fjs);
-              })(document, 'script', 'facebook-jssdk');
+                var interval = null;
+                var toggleDialogIframeStyle = function () {
+                  var dom = document.querySelector('.fb_iframe_widget iframe');
+                  if (!dom) {
+                    return;
+                  }
+                  var height = dom.style.maxHeight;
+                  if (height) {
+                    clearInterval(interval);
+                  }
+                  if (height === '0px' || !height) {
+                    toggleClass(false);
+                  } else {
+                    toggleClass(true);
+                  }
+                };
+  
+                window.fbAsyncInit = function () {
+                  FB.init({
+                    xfbml: true,
+                    version: 'v12.0',
+                  });
+                  FB.Event.subscribe('customerchat.load', function () {
+                    interval = setInterval(function () {
+                      toggleDialogIframeStyle();
+                    }, 500);
+                  });
+                  FB.Event.subscribe('customerchat.dialogShow', function () {
+                    toggleClass(true);
+                    window.goldlog.record('/dtceasy.common', 'CLK', 'component_name=im_button');
+                  });
+                  FB.Event.subscribe('customerchat.dialogHide', function () {
+                    toggleClass(false);
+                  });
+                  window.goldlog.record('/dtceasy.common', 'EXP', 'component_name=im_button');
+                };
+  
+                (function (d, s, id) {
+                  var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                  fjs.parentNode.insertBefore(js, fjs);
+                })(document, 'script', 'facebook-jssdk');
+              }
             }
-          }
+          });
+      });
+    })();
+  </script>
+  <script src="//assets.dtceasy-cdn.com/code/lib/react/17.0.2/umd/react.production.min.js"></script>
+  <script src="//assets.dtceasy-cdn.com/code/lib/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="//fb.dtceasy-cdn.com/kf/S46dd5315b77a456aa51942b1d92789b8h.js"></script>
+  <script src="//fb.dtceasy-cdn.com/kf/S1758a4c459314858b25642c3b20ed541v.js"></script>
+  <script src="//assets.dtceasy-cdn.com/code/npm/@alife/comet-ui-bundle/1.0.1/index.js"></script>
+  <script defer src="https://assets.dtceasy-cdn.com/dtc-fe/policy-control/0.0.8/main.js"></script><script type="text/javascript">
+  ;(function () {
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) return match[2];
+    };
+    window.globalData = window.globalData || {};
+    window.globalData.cookie_id = '15012001_' + getCookie('cna') || Date.now();
+    function loadJs() {
+      var shop = {"id":557,"name":"Yiwu Pinmoo Electronic Commerce Co., Ltd.","nameEn":"Yiwu Pinmoo Electronic Commerce Co., Ltd.","shopLogo":"https://img.alicdn.com/imgextra/i4/O1CN01ZWQ7Xu1TT0BIV51dO_!!6000000002382-55-tps-104-104.svg","shopStatus":1,"features":"{\"secretOpen\":false,\"secretKey\":\"d8dvam\",\"lang\":\"en_US\",\"renderType\":\"LIQUID\",\"seo\":{\"sellerId\":15012001},\"isTestShop\":false,\"shortCode\":\"GL15ED7FOH7\"}","bizId":15012001,"sellerType":"seller","shopType":"seller","isLazMall":false,"url":"www.pinmoohome.com","uniqueUrl":"pinmoohome.okkishops.com","uniqueCode":"pinmoohome","associatedBrands":null,"urlKey":"pinmoohome","subSellerId":null,"iconLinkLocal":null,"iconLink":null,"tagline":null,"taglineEn":null,"moodHorizontal":null,"operatorId":null,"localNameMap":null,"gmtCreate":"2022-06-07T08:39:42.000Z","gmtModified":"2022-06-21T09:06:02.000Z","tags":null,"shopTags":null};
+      var scriptList = [{"gmtCreate":null,"gmtModified":null,"location":"body","displayScope":"all","key":null,"src":"https://tfile.xiaoman.cn/okki/analyze-ames.prod.js","id":null,"createAt":null,"updateAt":null}];
+      var param = shop && shop.urlKey || '';
+      var body = document.querySelector('body');
+      scriptList.forEach(item => {
+        var src = (item.src + '?urlKey=' + param);
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = src;
+        body && (body.appendChild(s));
+      });
+    }
+  
+    function loadMeta() {
+      
+        const metaList = [];
+      
+      var head = document.querySelector('head');
+      metaList.forEach(item => {
+        var arr = JSON.parse(item.fieldValue || '[]');
+        arr.forEach(function (metaItem) {
+          const meta = document.createElement('meta');
+          meta.name = metaItem.name;
+          meta.content = metaItem.content;
+          head && (head.appendChild(meta));
         });
+      });
+    }
+  
+    window.addEventListener('DOMContentLoaded', function (e) {
+      loadJs();
+      loadMeta();
     });
   })();
-</script>
-<script src="//assets.dtceasy-cdn.com/code/lib/react/17.0.2/umd/react.production.min.js"></script>
-<script src="//assets.dtceasy-cdn.com/code/lib/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-<script src="//fb.dtceasy-cdn.com/kf/S46dd5315b77a456aa51942b1d92789b8h.js"></script>
-<script src="//fb.dtceasy-cdn.com/kf/S1758a4c459314858b25642c3b20ed541v.js"></script>
-<script src="//assets.dtceasy-cdn.com/code/npm/@alife/comet-ui-bundle/1.0.1/index.js"></script>
-<script defer src="https://assets.dtceasy-cdn.com/dtc-fe/policy-control/0.0.8/main.js"></script><script type="text/javascript">
-;(function () {
-  function getCookie(name) {
-    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    if (match) return match[2];
-  };
-  window.globalData = window.globalData || {};
-  window.globalData.cookie_id = '15012001_' + getCookie('cna') || Date.now();
-  function loadJs() {
-    var shop = {"id":557,"name":"Yiwu Pinmoo Electronic Commerce Co., Ltd.","nameEn":"Yiwu Pinmoo Electronic Commerce Co., Ltd.","shopLogo":"https://img.alicdn.com/imgextra/i4/O1CN01ZWQ7Xu1TT0BIV51dO_!!6000000002382-55-tps-104-104.svg","shopStatus":1,"features":"{\"secretOpen\":false,\"secretKey\":\"d8dvam\",\"lang\":\"en_US\",\"renderType\":\"LIQUID\",\"seo\":{\"sellerId\":15012001},\"isTestShop\":false,\"shortCode\":\"GL15ED7FOH7\"}","bizId":15012001,"sellerType":"seller","shopType":"seller","isLazMall":false,"url":"www.pinmoohome.com","uniqueUrl":"pinmoohome.okkishops.com","uniqueCode":"pinmoohome","associatedBrands":null,"urlKey":"pinmoohome","subSellerId":null,"iconLinkLocal":null,"iconLink":null,"tagline":null,"taglineEn":null,"moodHorizontal":null,"operatorId":null,"localNameMap":null,"gmtCreate":"2022-06-07T08:39:42.000Z","gmtModified":"2022-06-21T09:06:02.000Z","tags":null,"shopTags":null};
-    var scriptList = [{"gmtCreate":null,"gmtModified":null,"location":"body","displayScope":"all","key":null,"src":"https://tfile.xiaoman.cn/okki/analyze-ames.prod.js","id":null,"createAt":null,"updateAt":null}];
-    var param = shop && shop.urlKey || '';
-    var body = document.querySelector('body');
-    scriptList.forEach(item => {
-      var src = (item.src + '?urlKey=' + param);
-      var s = document.createElement('script');
-      s.defer = true;
-      s.src = src;
-      body && (body.appendChild(s));
-    });
-  }
-
-  function loadMeta() {
-    
-      const metaList = [];
-    
-    var head = document.querySelector('head');
-    metaList.forEach(item => {
-      var arr = JSON.parse(item.fieldValue || '[]');
-      arr.forEach(function (metaItem) {
-        const meta = document.createElement('meta');
-        meta.name = metaItem.name;
-        meta.content = metaItem.content;
-        head && (head.appendChild(meta));
-      });
-    });
-  }
-
-  window.addEventListener('DOMContentLoaded', function (e) {
-    loadJs();
-    loadMeta();
-  });
-})();
-</script></body>
+  </script>  
+</body>
 </html>
