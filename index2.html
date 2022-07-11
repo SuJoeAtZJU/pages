@@ -1308,9 +1308,9 @@ html {
       <script>
         ;(function () {
           if (window.renderRemoteComponent) {
-            setTimeout(function () {
+            window.addEventListener('load', function () {
               window.renderRemoteComponent("https://assets.dtceasy-cdn.com/code/npm/@alife/product-slider/0.0.14/product-list.js", "product-list");
-            }, 1000);
+            });
           }
         })();
       </script>
